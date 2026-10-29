@@ -1,37 +1,37 @@
 # FE Answer Sheet Grader
 
-โปรเจกต์นี้ได้รับการบูรณาการโดยใช้ AI ช่วยพัฒนา และจัดทำขึ้นเพื่อช่วยตรวจกระดาษคำตอบแบบฝนของค่าย **FEST** และ **FE**
+This project was developed with AI assistance and is designed to help grade filled-in answer sheets used at the **FEST** and **FE** camps.
 
-ระบบอ่านข้อมูลจากกระดาษคำตอบที่สแกนหรือถ่ายภาพไว้ ตรวจจับคำตอบที่ฝน แล้วนำไปเทียบกับเฉลยเพื่อประมวลผลคะแนน
+The system processes scanned or photographed answer sheets, reads the marked answers, and compares them with the answer key to calculate scores.
 
-## โฟลเดอร์หลัก
+## Main Folders
 
-- `answersheet-scan/` — ภาพกระดาษคำตอบที่ต้องการตรวจ แยกตามชุดข้อสอบ
-- `answer-grader/` — ไฟล์เฉลยสำหรับใช้ตรวจ
-- `omr-result/` — ผลการอ่านคำตอบจากกระดาษคำตอบ
-- `graded-results/` — ผลคะแนนที่ประมวลผลแล้ว
-- `label_templates/` และ `pickles/` — แม่แบบและข้อมูลที่ใช้ในการอ่านตำแหน่งบนกระดาษคำตอบ
+- `answersheet-scan/` — Scanned answer sheets, organized by exam set
+- `answer-grader/` — Answer key files used for grading
+- `omr-result/` — Answers read from the scanned sheets
+- `graded-results/` — Processed grading results
+- `label_templates/` and `pickles/` — Templates and data used to locate answer areas on the sheets
 
-## วิธีใช้งานเบื้องต้น
+## Basic Usage
 
-วางภาพกระดาษคำตอบไว้ในโฟลเดอร์ย่อยภายใน `answersheet-scan/` จากนั้นเรียกโปรแกรมอ่านคำตอบ:
+Place answer sheet images in a subfolder inside `answersheet-scan/`, then run the answer-reading program:
 
 ```bash
 python3 omr.py all
 ```
 
-หรือระบุชื่อชุดข้อสอบที่อยู่ใน `answersheet-scan/`:
+To process a specific exam set found in `answersheet-scan/`, run:
 
 ```bash
 python3 omr.py pretest
 ```
 
-เมื่ออ่านคำตอบเสร็จแล้ว ให้ประมวลผลคะแนน:
+After the answers have been read, calculate the scores:
 
 ```bash
 python3 grader.py
 ```
 
-ผลลัพธ์จะถูกบันทึกใน `omr-result/` และ `graded-results/` ตามขั้นตอนการทำงานของโปรแกรม
+The program saves the extracted answers in `omr-result/` and the processed scores in `graded-results/`.
 
-> ควรตรวจสอบภาพสแกนและผลการอ่านคำตอบก่อนนำคะแนนไปใช้งานจริง เพราะคุณภาพภาพและลักษณะการฝนอาจมีผลต่อความถูกต้องของผลลัพธ์
+> Review the scanned images and extracted answers before using the scores. Image quality and how answers are marked can affect the results.
