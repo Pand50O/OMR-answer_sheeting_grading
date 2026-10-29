@@ -7,7 +7,7 @@ The system processes scanned or photographed answer sheets, reads the marked ans
 ## Main Folders
 
 - `answersheet-scan/` — Scanned answer sheets, organized by exam set
-- `debug-images/` — Examples showing how the system detects marked answers
+- **[View mark detection examples in `debug-images/` →](debug-images/)**
 - `answer-grader/` — Answer key files used for grading
 - `omr-result/` — Answers read from the scanned sheets
 - `graded-results/` — Processed grading results
